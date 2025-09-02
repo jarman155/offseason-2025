@@ -158,23 +158,23 @@ public class VisionSubsystem extends SubsystemBase {
     public Rotation2d getAngle() {
         return Rotation2d.fromDegrees(gyro.getYaw() - Constants.gyroOffset);
     }
-   @Override
-     public void initSendable(SendableBuilder builder) {
-    super.initSendable(builder);
-
-    // Your existing entries (fixed syntax)
-    builder.addDoubleProperty("Tag ID", () -> id, null);
-    builder.addDoubleProperty("Tag Dist", () -> getDistFromCamera(), null);
-    builder.addDoubleProperty("Tag Yaw", () -> camToTagYaw, null);
-    builder.addDoubleProperty("Tag Pitch", () -> camToTagPitch, null);
-    builder.addBooleanProperty("See Tag", () -> isSeeTag(), null);
-    builder.addDoubleProperty("Robot X", () -> getOriginToRobot().getX(), null);
-    builder.addDoubleProperty("Robot Y", () -> getOriginToRobot().getY(), null);
-
-    // Add gyro diagnostics
-    builder.addBooleanProperty("Gyro Connected", () -> gyro.isConnected(), null);
-    builder.addBooleanProperty("Gyro Calibrating", () -> gyro.isCalibrating(), null);
-    builder.addDoubleProperty("Gyro Yaw", () -> gyro.getYaw(), null);
+    @Override
+    public void initSendable(SendableBuilder builder) {
+        super.initSendable(builder);
+    
+        // Your existing entries (fixed syntax)
+        builder.addDoubleProperty("Tag ID", () -> id, null);
+        builder.addDoubleProperty("Tag Dist", () -> getDistFromCamera(), null);
+        builder.addDoubleProperty("Tag Yaw", () -> camToTagYaw, null);
+        builder.addDoubleProperty("Tag Pitch", () -> camToTagPitch, null);
+        builder.addBooleanProperty("See Tag", () -> isSeeTag(), null);
+        builder.addDoubleProperty("Robot X", () -> getOriginToRobot().getX(), null);
+        builder.addDoubleProperty("Robot Y", () -> getOriginToRobot().getY(), null);
+    
+        // Add gyro diagnostics
+        builder.addBooleanProperty("Gyro Connected", () -> gyro.isConnected(), null);
+        builder.addBooleanProperty("Gyro Calibrating", () -> gyro.isCalibrating(), null);
+        builder.addDoubleProperty("Gyro Yaw", () -> gyro.getYaw(), null);
         
    }
 
